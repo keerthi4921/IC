@@ -1,23 +1,19 @@
-class Student{
-    private String name="Sneha";
-    private int rollno=17;
-    public void getter(){
-        System.out.println(name);
-        System.out.println(rollno);
+class UserRegistration{
+    void register(String name,int userId){
+        System.out.println("Registered user:"+name+"with ID:"+userId);
     }
-     public void setter( String s){
-        name=s;
-
-
+    void register(int userId, String name){
+        System.out.println("Registered ID: " + userId + " for user: " + name);
+    }
 }
-}
+
 public class Main {
     public static void main(String[] args) {
-        Student stu=new Student();
-        stu.getter();
-        stu.setter("priya");
-        stu.getter();
-
+        UserRegistration u=new UserRegistration();
+        u.register("Sneha",1);
+        u.register(2,"Hema");
+        
     }
     
 }
+

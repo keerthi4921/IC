@@ -1,26 +1,36 @@
-class Person{
-    String name = "sneha";
-    void displayPerson(){
-    System.out.println(name);
+class Payment {
+
+    void pay(double amount) {
+        System.out.println("Processing generic payment of ₹" + amount);
     }
 }
-class Employee extends Person{
-    int employeeId =517;
-    void displayEmployee(){
-    System.out.println(employeeId);
+
+class CreditCard extends Payment {
+
+    @Override
+    void pay(double amount) {
+        System.out.println("Paid ₹" + amount + " via Credit Card");
     }
 }
-class Manager extends Employee{
-    String department="CSE";
-    void diaplayManager(){
-        System.out.println(department);
+class UPI extends Payment {
+
+    @Override
+    void pay(double amount) {
+        System.out.println("Paid ₹" + amount + " via UPI");
     }
 }
-public class Main3 {
-    public static void main(String args[]){
-        Manager ob = new Manager();
-        ob.displayPerson();
-        ob.displayEmployee();
-        ob.diaplayManager();
+
+public class Main3{
+
+    public static void main(String[] args) {
+
+        Payment[] payments = {
+            new CreditCard(),
+            new UPI()
+        };
+
+        for (Payment p : payments) {
+            p.pay(500.0);
+        }
     }
 }

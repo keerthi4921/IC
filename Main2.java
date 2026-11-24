@@ -1,36 +1,29 @@
-class Shape{
-    String color;
-    void displayColor(){
-        System.out.println("Color="+color);
+class Employee {
+    double baseSalary;
+
+    double calculateSalary() {
+        return baseSalary;
     }
 }
-class Circle extends Shape{
-    int  r=5;
-     void calculateArea(){
-        System.out.println("Calculated area="+3.14*r*r);
 
-
-     }
-}
-class Rectangle extends Shape{
-    int l=5;
-    int b=2;
-    void calculateArea(){
-        System.out.println("Calculated Area="+l*b);
+class SalesEmployee extends Employee {
+    double bonus;
+    @Override
+    double calculateSalary() {
+        return super.calculateSalary() + bonus;
     }
 }
+
 public class Main2 {
     public static void main(String[] args) {
-        Circle c=new Circle();
-        Rectangle r=new Rectangle();
-        c.color="red";
-        r.color="yellow";
-        c.calculateArea();
-        r.calculateArea();
-        c.displayColor();
-        r.displayColor();
 
-        
+        SalesEmployee s = new SalesEmployee();
+
+        s.baseSalary = 30000;
+        s.bonus = 5000;
+
+        System.out.println("Base Salary: " + s.baseSalary);
+        System.out.println("Bonus: " + s.bonus);
+        System.out.println("Total Salary: " + s.calculateSalary());
     }
-    
 }
